@@ -130,6 +130,10 @@
 			min-height: 100vh;
 		}
 
+		main {
+			padding-bottom: 108px;
+		}
+
 		.shape-blob {
 			position: absolute;
 			z-index: -1;
@@ -642,9 +646,12 @@
 			background: #fff;
 			border-radius: var(--r);
 			border: 1px solid #d4ecb1;
-			padding: 18px;
+			padding: 0;
 			aspect-ratio: 4 / 5;
 			box-shadow: 0 10px 24px rgba(100, 150, 40, 0.09);
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
 			mask:
 				calc(100% - var(--_d) - var(--x)) 0 var(--_m),
 				100% calc(var(--_d) + var(--y)) var(--_m),
@@ -659,6 +666,12 @@
 				var(--_g) 0 calc(var(--_d) + var(--y));
 			mask-repeat: no-repeat;
 			-webkit-mask-repeat: no-repeat;
+		}
+
+		.benefit-content {
+			padding: 12px 14px 16px;
+			display: grid;
+			gap: 6px;
 		}
 
 		.benefit-controls {
@@ -705,8 +718,18 @@
 		}
 
 		.benefit h4 {
-			margin: 8px 0 8px;
+			margin: 0;
 			color: #355220;
+		}
+
+		.benefit-image {
+			width: 100%;
+			height: 232px;
+			object-fit: cover;
+			border-radius: 0;
+			border: none;
+			margin: 0;
+			box-shadow: none;
 		}
 
 		.benefit p {
@@ -825,6 +848,230 @@
 			box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
 		}
 
+		.capsule-story {
+			position: relative;
+			padding: 92px 0 78px;
+			background:
+				radial-gradient(circle at 8% 10%, rgba(210, 237, 168, 0.45), rgba(210, 237, 168, 0)),
+				radial-gradient(circle at 82% 90%, rgba(129, 176, 75, 0.26), rgba(129, 176, 75, 0)),
+				linear-gradient(180deg, #f9ffed 0%, #eef9dc 100%);
+		}
+
+		.story-head {
+			display: grid;
+			gap: 10px;
+			max-width: 72ch;
+			margin: 0 auto 26px;
+			text-align: center;
+		}
+
+		.story-eyebrow {
+			font-size: 0.8rem;
+			font-weight: 800;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			color: #52742f;
+		}
+
+		.story-title {
+			margin: 0;
+			font-size: clamp(1.6rem, 3.4vw, 2.7rem);
+			line-height: 1.1;
+			color: #2e4a1d;
+		}
+
+		.story-sub {
+			margin: 0;
+			color: #4a6339;
+			line-height: 1.6;
+		}
+
+		.story-ingredients {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 8px;
+			margin-top: 6px;
+		}
+
+		.story-chip {
+			padding: 6px 10px;
+			border-radius: 999px;
+			font-size: 0.78rem;
+			font-weight: 700;
+			border: 1px solid #cbe3a5;
+			background: rgba(255, 255, 255, 0.78);
+			color: #365322;
+		}
+
+		.story-window {
+			position: relative;
+			width: min(1080px, 94vw);
+			margin: 0 auto 30px;
+			border-radius: 28px;
+			overflow: hidden;
+			border: 1px solid #c2db9d;
+			background: #e9f6d2;
+			box-shadow: 0 18px 40px rgba(69, 101, 34, 0.2);
+		}
+
+		.window-glass {
+			position: relative;
+			height: min(58vh, 520px);
+			background: #ddecbd;
+		}
+
+		.window-glass img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			filter: saturate(1.02) contrast(1.04);
+		}
+
+		.window-overlay {
+			position: absolute;
+			inset: 0;
+			background:
+				linear-gradient(180deg, rgba(18, 31, 10, 0.08), rgba(18, 31, 10, 0.28));
+		}
+
+		.window-caption {
+			position: absolute;
+			left: 22px;
+			right: 22px;
+			bottom: 18px;
+			display: grid;
+			gap: 6px;
+			color: #f7ffe8;
+			z-index: 5;
+		}
+
+		.window-caption strong {
+			font-size: clamp(1rem, 2vw, 1.35rem);
+		}
+
+		.window-caption span {
+			font-size: 0.88rem;
+			color: #e5f8cb;
+		}
+
+		.window-shutter {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 50%;
+			z-index: 4;
+			background:
+				repeating-linear-gradient(90deg, #4e6f2f 0 14px, #466629 14px 28px);
+			box-shadow: inset 0 0 0 1px rgba(245, 255, 234, 0.14);
+		}
+
+		.window-shutter.left {
+			left: 0;
+			border-right: 1px solid rgba(241, 255, 222, 0.42);
+		}
+
+		.window-shutter.right {
+			right: 0;
+			border-left: 1px solid rgba(241, 255, 222, 0.42);
+		}
+
+		.window-center-line {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 50%;
+			width: 2px;
+			z-index: 6;
+			background: rgba(248, 255, 236, 0.6);
+			transform: translateX(-50%);
+		}
+
+		.capsule-scroll-wrap {
+			overflow: visible;
+		}
+
+		.capsule-track {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 16px;
+		}
+
+		.process-card {
+			display: grid;
+			gap: 12px;
+			padding: 14px;
+			border-radius: 22px 8px 22px 22px;
+			border: 1px solid #c6dea0;
+			background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(242, 252, 223, 0.88));
+			box-shadow: 0 12px 26px rgba(83, 121, 42, 0.18);
+		}
+
+		.process-image {
+			position: relative;
+			height: 240px;
+			border-radius: 14px;
+			overflow: hidden;
+			background: #e1f1c3;
+		}
+
+		.process-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			will-change: transform;
+		}
+
+		.process-badge {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			padding: 6px 10px;
+			border-radius: 999px;
+			font-size: 0.72rem;
+			font-weight: 800;
+			color: #2f4c1c;
+			background: rgba(247, 255, 233, 0.92);
+			border: 1px solid rgba(129, 178, 76, 0.52);
+		}
+
+		.process-copy {
+			display: grid;
+			gap: 8px;
+		}
+
+		.process-step {
+			font-size: 0.8rem;
+			font-weight: 800;
+			letter-spacing: 0.8px;
+			text-transform: uppercase;
+			color: #557731;
+		}
+
+		.process-copy h3 {
+			margin: 0;
+			font-size: clamp(1.05rem, 2vw, 1.34rem);
+			line-height: 1.18;
+			color: #2e4a1d;
+		}
+
+		.process-copy p {
+			margin: 0;
+			font-size: 0.93rem;
+			line-height: 1.58;
+			color: #486237;
+		}
+
+		.process-meta {
+			padding: 8px 10px;
+			border: 1px dashed #b9d590;
+			border-radius: 12px;
+			background: rgba(255, 255, 255, 0.66);
+			font-size: 0.83rem;
+			font-weight: 700;
+			color: #3e5c2a;
+		}
+
 		.icon {
 			width: 42px;
 			height: 42px;
@@ -837,43 +1084,282 @@
 		}
 
 		.testimonial-wrap {
-			padding: 56px 0;
+			padding: 74px 0 92px;
+			background:
+				radial-gradient(circle at 85% 10%, rgba(201, 234, 153, 0.6), rgba(201, 234, 153, 0)),
+				linear-gradient(180deg, #eef8dc 0%, #e1f0c8 100%);
 		}
 
-		.testimonials {
+		.testimonial-wrap .container {
+			width: 100%;
+			max-width: none;
+			margin: 0;
+			padding: 0 2.5vw;
+		}
+
+		.feedback-shell {
+			background:
+				radial-gradient(circle at 0% 0%, rgba(202, 235, 153, 0.35), rgba(202, 235, 153, 0)),
+				linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(242, 253, 220, 0.86));
+			border-top: 1px solid #bdd79a;
+			border-bottom: 1px solid #bdd79a;
+			border-left: none;
+			border-right: none;
+			border-radius: 0;
+			padding: 28px clamp(14px, 2.2vw, 34px);
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 10px 24px rgba(70, 104, 34, 0.1);
+			overflow: hidden;
+			width: 100%;
+		}
+
+		.feedback-head {
 			display: grid;
-			gap: 16px;
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 8px;
+			text-align: center;
+			margin-bottom: 18px;
 		}
 
-		.quote {
+		.feedback-kicker {
+			font-size: 0.82rem;
+			font-weight: 800;
+			letter-spacing: 0.9px;
+			color: #52752f;
+			text-transform: uppercase;
+		}
+
+		.feedback-title {
+			margin: 0;
+			font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+			color: #2f4c1c;
+		}
+
+		.feedback-sub {
+			margin: 0 auto;
+			color: #4a6339;
+			max-width: 62ch;
+			line-height: 1.55;
+		}
+
+		.feedback-toolbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 10px;
+			margin: 10px 0 14px;
+			padding: 10px 12px;
+			border-radius: 14px;
+			background: rgba(255, 255, 255, 0.62);
+			border: 1px solid rgba(189, 215, 154, 0.9);
+		}
+
+		.feedback-count {
+			font-size: 0.9rem;
+			font-weight: 700;
+			color: #3e5b2a;
+		}
+
+		.feedback-actions {
+			display: flex;
+			gap: 8px;
+		}
+
+		.review-btn {
+			width: 36px;
+			height: 36px;
+			border: 1px solid #b9d28f;
+			border-radius: 50%;
 			background: #fff;
-			border: 1px solid #d8ecb7;
-			border-radius: 16px;
+			color: #3d5f24;
+			font-size: 18px;
+			font-weight: 800;
+			cursor: pointer;
+			transition: transform 0.18s ease, box-shadow 0.18s ease;
+		}
+
+		.review-btn:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 6px 12px rgba(70, 106, 37, 0.2);
+		}
+
+		.reviews-grid {
+			display: flex;
+			gap: 16px;
+			margin-top: 24px;
+			padding: 20px 0;
+			overflow: hidden;
+			width: fit-content;
+		}
+
+		@media (max-width: 980px) {
+			.reviews-grid {
+				gap: 14px;
+			}
+		}
+
+		@media (max-width: 620px) {
+			.reviews-grid {
+				gap: 12px;
+			}
+		}
+
+		.feedback-viewport {
+			overflow: hidden;
+		}
+
+		.feedback-track {
+			--reviews-per-view: 3;
+			display: flex;
+			gap: 14px;
+			transition: transform 0.45s ease;
+			will-change: transform;
+		}
+
+		.review-card {
+			flex: 0 0 320px;
+			min-width: 320px;
+			background: linear-gradient(135deg, #ffffff 0%, #f8ffe7 100%);
+			border: 1.5px solid #cfe5ad;
+			border-radius: 24px 8px 24px 24px;
 			padding: 18px;
-			box-shadow: var(--soft-shadow);
+			box-shadow: 0 12px 28px rgba(86, 125, 45, 0.15);
+			display: grid;
+			gap: 10px;
+			transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+			position: relative;
+			overflow: hidden;
 		}
 
-		.quote p {
-			margin: 0 0 10px;
-			line-height: 1.52;
-			color: #435837;
+		.review-card::before {
+			content: '';
+			position: absolute;
+			top: -2px;
+			right: -2px;
+			width: 100px;
+			height: 100px;
+			background: radial-gradient(circle, rgba(139, 193, 86, 0.1), rgba(139, 193, 86, 0));
+			border-radius: 50%;
+			pointer-events: none;
 		}
 
-		.quote .name {
+		.review-card:hover {
+			transform: translateY(-8px) scale(1.02);
+			box-shadow: 0 18px 38px rgba(73, 108, 38, 0.25);
+		}
+
+		.review-top {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.review-user {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			min-width: 0;
+		}
+
+		.review-avatar {
+			width: 38px;
+			height: 38px;
+			border-radius: 50%;
+			object-fit: cover;
+			border: 1px solid #cde2ab;
+			box-shadow: 0 3px 8px rgba(72, 105, 39, 0.2);
+			flex-shrink: 0;
+		}
+
+		.review-meta {
+			display: grid;
+			gap: 1px;
+			min-width: 0;
+		}
+
+		.review-name {
 			font-weight: 800;
 			color: #33511f;
-			font-size: 0.94rem;
+			font-size: 0.92rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.review-time {
+			font-size: 0.78rem;
+			color: #608047;
+		}
+
+		.review-stars {
+			font-size: 0.92rem;
+			letter-spacing: 1px;
+			color: #FFD700;
+		}
+
+		.review-text {
+			margin: 0;
+			color: #455d36;
+			line-height: 1.55;
+			font-size: 0.92rem;
+		}
+
+		.feedback-scroller {
+			margin-top: 16px;
+			padding: 10px 2px 6px;
+			display: grid;
+			gap: 8px;
+		}
+
+		.review-range {
+			width: 100%;
+			appearance: none;
+			height: 12px;
+			border-radius: 999px;
+			background:
+				linear-gradient(90deg, #8bc156 0%, #6ea340 var(--review-progress, 0%), #d8eac0 var(--review-progress, 0%), #d8eac0 100%);
+			box-shadow: inset 0 2px 4px rgba(50, 73, 28, 0.18), inset 0 -1px 0 rgba(255, 255, 255, 0.65);
+			outline: none;
+			position: relative;
+		}
+
+		.review-range::-webkit-slider-thumb {
+			appearance: none;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			border: 2px solid #f8ffe9;
+			background: radial-gradient(circle at 32% 28%, #efffd4 0%, #93c45a 58%, #6f9f40 100%);
+			box-shadow: 0 2px 10px rgba(39, 61, 19, 0.34), 0 0 0 4px rgba(179, 221, 126, 0.28);
+			cursor: pointer;
+		}
+
+		.review-range::-moz-range-thumb {
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			border: 2px solid #f8ffe9;
+			background: radial-gradient(circle at 32% 28%, #efffd4 0%, #93c45a 58%, #6f9f40 100%);
+			box-shadow: 0 2px 10px rgba(39, 61, 19, 0.34), 0 0 0 4px rgba(179, 221, 126, 0.28);
+			cursor: pointer;
+		}
+
+		.review-progress-meta {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 0.82rem;
+			color: #486537;
+			font-weight: 700;
 		}
 
 
 		.sticky-buy {
 			position: fixed;
-			bottom: 12px;
+			bottom: max(12px, env(safe-area-inset-bottom));
 			left: 50%;
 			transform: translateX(-50%);
 			width: min(580px, calc(100vw - 20px));
-			z-index: 40;
+			z-index: 1200;
 			border: 1px solid #cfe5aa;
 			border-radius: 16px;
 			background: rgba(255, 255, 255, 0.96);
@@ -915,8 +1401,20 @@
 
 		@media (max-width: 980px) {
 			.hero-grid,
-			.testimonials {
+			testimonials {
 				grid-template-columns: 1fr;
+			}
+
+			.window-glass {
+				height: 360px;
+			}
+
+			.capsule-track {
+				grid-template-columns: 1fr;
+			}
+
+			.feedback-track {
+				--reviews-per-view: 2;
 			}
 
 			.benefit-grid {
@@ -954,6 +1452,28 @@
 				display: none;
 			}
 
+			.capsule-story {
+				padding: 70px 0 54px;
+			}
+
+			.story-window {
+				border-radius: 20px;
+			}
+
+			.window-glass {
+				height: 270px;
+			}
+
+			.window-caption {
+				left: 14px;
+				right: 14px;
+				bottom: 12px;
+			}
+
+			.process-image {
+				height: 205px;
+			}
+
 			.benefit-grid {
 				--cards-per-view: 1;
 			}
@@ -964,6 +1484,15 @@
 
 			.research-pairs {
 				grid-template-columns: 1fr;
+			}
+
+			.feedback-track {
+				--reviews-per-view: 1;
+			}
+
+			.feedback-toolbar {
+				flex-direction: column;
+				align-items: flex-start;
 			}
 
 			.ribbon {
@@ -978,7 +1507,7 @@
 
 			.sticky-buy {
 				width: calc(100vw - 16px);
-				bottom: 8px;
+				bottom: max(8px, env(safe-area-inset-bottom));
 			}
 
 			.sticky-buy .btn {
@@ -1161,29 +1690,44 @@
 					<div class="benefit-viewport">
 						<div class="benefit-track" id="benefitTrack">
 							<article class="benefit fade-up">
-								<div class="icon">01</div>
-								<h4>Liver Function Support</h4>
-								<p>Milk thistle extract with naturally occurring silymarin to support healthy liver cell function.</p>
+								<img class="benefit-image" src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=900&q=80" alt="Milk thistle plant closeup" loading="lazy" />
+								<div class="benefit-content">
+									<div class="icon">01</div>
+									<h4>Liver Function Support</h4>
+									<p>Milk thistle extract with naturally occurring silymarin to support healthy liver cell function.</p>
+								</div>
 							</article>
 							<article class="benefit fade-up">
-								<div class="icon">02</div>
-								<h4>Antioxidant Defense</h4>
-								<p>Helps protect from oxidative stress that can build up from modern food and environmental exposure.</p>
+								<img class="benefit-image" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=900&q=80" alt="Fresh green ingredients" loading="lazy" />
+								<div class="benefit-content">
+									<div class="icon">02</div>
+									<h4>Antioxidant Defense</h4>
+									<p>Helps protect from oxidative stress that can build up from modern food and environmental exposure.</p>
+								</div>
 							</article>
 							<article class="benefit fade-up">
-								<div class="icon">03</div>
-								<h4>Simple Daily Habit</h4>
-								<p>Easy-to-take capsules with clean ingredients, made to fit your routine without complexity.</p>
+								<img class="benefit-image" src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=900&q=80" alt="Healthy routine lifestyle" loading="lazy" />
+								<div class="benefit-content">
+									<div class="icon">03</div>
+									<h4>Simple Daily Habit</h4>
+									<p>Easy-to-take capsules with clean ingredients, made to fit your routine without complexity.</p>
+								</div>
 							</article>
 							<article class="benefit fade-up">
-								<div class="icon">04</div>
-								<h4>Digestive Comfort</h4>
-								<p>Supports a lighter post-meal feel and helps maintain digestive balance throughout the day.</p>
+								<img class="benefit-image" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80" alt="Light healthy meal" loading="lazy" />
+								<div class="benefit-content">
+									<div class="icon">04</div>
+									<h4>Digestive Comfort</h4>
+									<p>Supports a lighter post-meal feel and helps maintain digestive balance throughout the day.</p>
+								</div>
 							</article>
 							<article class="benefit fade-up">
-								<div class="icon">05</div>
-								<h4>Clean Formula</h4>
-								<p>Designed with straightforward ingredients and no unnecessary complexity in your routine.</p>
+								<img class="benefit-image" src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=900&q=80" alt="Supplement and clean nutrition setup" loading="lazy" />
+								<div class="benefit-content">
+									<div class="icon">05</div>
+									<h4>Clean Formula</h4>
+									<p>Designed with straightforward ingredients and no unnecessary complexity in your routine.</p>
+								</div>
 							</article>
 						</div>
 					</div>
@@ -1261,22 +1805,109 @@
 			</div>
 		</section>
 
+		<section class="capsule-story" id="capsuleStory">
+			<div class="container">
+				<div class="story-head">
+					<div class="story-eyebrow">Inside Every Bottle</div>
+					<h2 class="story-title">Every Capsule Is Packed With Essentials</h2>
+					<p class="story-sub">8 active ingredients. Perfect dosages. Scroll to open the story window, then follow how each batch moves from raw botanicals to final sealed capsules.</p>
+					<div class="story-ingredients" aria-label="Active ingredients highlights">
+						<span class="story-chip">Milk Thistle</span>
+						<span class="story-chip">Dandelion Root</span>
+						<span class="story-chip">Turmeric</span>
+						<span class="story-chip">Artichoke</span>
+						<span class="story-chip">Beet Root</span>
+						<span class="story-chip">NAC</span>
+						<span class="story-chip">Choline</span>
+						<span class="story-chip">Black Pepper</span>
+					</div>
+				</div>
+
+				<div class="story-window" id="storyWindow">
+					<div class="window-glass">
+						<img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80" alt="Fresh botanical ingredients and capsules" loading="lazy" />
+						<div class="window-overlay"></div>
+						<div class="window-caption">
+							<strong>Open the Batch Window</strong>
+							<span>From sourcing to seal, each stage is measured for consistency and readability.</span>
+						</div>
+					</div>
+					<div class="window-shutter left" id="windowLeft"></div>
+					<div class="window-shutter right" id="windowRight"></div>
+					<div class="window-center-line" id="windowCenterLine"></div>
+				</div>
+
+				<div class="capsule-scroll-wrap" id="capsuleWrap">
+					<div class="capsule-track" id="capsuleTrack">
+						<article class="process-card story-panel">
+							<div class="process-image">
+								<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80" alt="Fresh herbs selected for formulation" loading="lazy" />
+								<div class="process-badge">Step 01</div>
+							</div>
+							<div class="process-copy">
+								<div class="process-step">Ingredient Sourcing</div>
+								<h3>Botanicals Selected For Potency</h3>
+								<p>Lots are chosen from ingredient partners with traceability and standardized markers to begin each batch on stable foundations.</p>
+								<div class="process-meta">Traceable source lots + active marker checks</div>
+							</div>
+						</article>
+
+						<article class="process-card story-panel">
+							<div class="process-image">
+								<img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80" alt="Laboratory purity screening" loading="lazy" />
+								<div class="process-badge">Step 02</div>
+							</div>
+							<div class="process-copy">
+								<div class="process-step">Identity + Purity</div>
+								<h3>Incoming Materials Are Screened</h3>
+								<p>Identity and purity checks are documented before production so each run aligns with clean manufacturing controls and batch reliability.</p>
+								<div class="process-meta">GMP-aligned controls + clean processing zones</div>
+							</div>
+						</article>
+
+						<article class="process-card story-panel">
+							<div class="process-image">
+								<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80" alt="Precise supplement blending" loading="lazy" />
+								<div class="process-badge">Step 03</div>
+							</div>
+							<div class="process-copy">
+								<div class="process-step">Formula Blending</div>
+								<h3>8 Actives, Balanced Dose By Dose</h3>
+								<p>Ingredients are blended for homogeneity so each capsule body receives the same formula profile, not random variation.</p>
+								<div class="process-meta">Homogeneous blend + measured ratio controls</div>
+							</div>
+						</article>
+
+						<article class="process-card story-panel">
+							<div class="process-image">
+								<img src="https://images.unsplash.com/photo-1580281657527-47f249e8f4df?auto=format&fit=crop&w=1200&q=80" alt="Capsule filling and final packaging" loading="lazy" />
+								<div class="process-badge">Step 04</div>
+							</div>
+							<div class="process-copy">
+								<div class="process-step">Encapsulate + Seal</div>
+								<h3>Final Weight Checks Before Release</h3>
+								<p>Encapsulation and final lot checks happen before bottles are sealed and labeled, keeping output consistent from run to run.</p>
+								<div class="process-meta">In-line weight checks + tamper-evident release</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<section class="testimonial-wrap">
 			<div class="container">
-				<h2 class="section-title">Real Customer Feedback</h2>
-				<div class="testimonials">
-					<article class="quote fade-up">
-						<p>"Within a few weeks I felt less sluggish after meals. It has become a staple in my wellness stack."</p>
-						<div class="name">Rina M. | Verified Buyer</div>
-					</article>
-					<article class="quote fade-up">
-						<p>"Love the clean formula and the fact that I can buy multiple bottles with a better price."</p>
-						<div class="name">Caleb T. | Verified Buyer</div>
-					</article>
-					<article class="quote fade-up">
-						<p>"My energy feels more stable now, and shipping was fast. The herbal vibe and quality are both excellent."</p>
-						<div class="name">Nina R. | Verified Buyer</div>
-					</article>
+				<div class="feedback-shell">
+					<div class="feedback-head">
+						<div class="feedback-kicker">Trusted By Real Customers</div>
+						<h2 class="feedback-title">Customer Feedback</h2>
+						<p class="feedback-sub">A natural blend deserves transparent experiences. Explore verified stories from daily users across digestion, energy, and overall wellness routines.</p>
+					</div>
+
+					<div class="feedback-count">110 Verified Customer Reviews</div>
+
+					<div class="reviews-grid" id="reviewsGrid"></div>
+				</div>
 				</div>
 			</div>
 		</section>
@@ -1288,8 +1919,15 @@
 		<button class="btn btn-primary" id="stickyBuyBtn">Buy Milk Thistle</button>
 	</div>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 	<script>
 		(function () {
+			if (window.gsap && window.ScrollTrigger) {
+				gsap.registerPlugin(ScrollTrigger);
+			}
+
 			const packOptions = document.querySelectorAll(".option-card");
 			const sliderTrack = document.getElementById("sliderTrack");
 			const sliderPrev = document.getElementById("sliderPrev");
@@ -1301,6 +1939,11 @@
 			const benefitPrev = document.getElementById("benefitPrev");
 			const benefitNext = document.getElementById("benefitNext");
 			const benefitDots = document.getElementById("benefitDots");
+			const feedbackTrack = document.getElementById("feedbackTrack");
+			const reviewPrev = document.getElementById("reviewPrev");
+			const reviewNext = document.getElementById("reviewNext");
+			const reviewRange = document.getElementById("reviewRange");
+			const reviewProgressText = document.getElementById("reviewProgressText");
 			const qtyInput = document.getElementById("qtyInput");
 			const minus = document.getElementById("minus");
 			const plus = document.getElementById("plus");
@@ -1308,6 +1951,13 @@
 			const stickyPrice = document.getElementById("stickyPrice");
 			const addToCartBtn = document.getElementById("addToCartBtn");
 			const heroAddCart = document.getElementById("heroAddCart");
+			const capsuleStory = document.getElementById("capsuleStory");
+			const capsuleWrap = document.getElementById("capsuleWrap");
+			const capsuleTrack = document.getElementById("capsuleTrack");
+			const storyWindow = document.getElementById("storyWindow");
+			const windowLeft = document.getElementById("windowLeft");
+			const windowRight = document.getElementById("windowRight");
+			const windowCenterLine = document.getElementById("windowCenterLine");
 
 			if (sliderTrack && sliderDots.length) {
 				let currentSlide = 0;
@@ -1423,6 +2073,189 @@
 				recalcBenefits();
 			}
 
+			if (capsuleStory && capsuleWrap && capsuleTrack && storyWindow && windowLeft && windowRight && window.gsap && window.ScrollTrigger) {
+				const storyPanels = Array.from(capsuleTrack.querySelectorAll(".story-panel"));
+				const processImages = Array.from(capsuleTrack.querySelectorAll(".process-image img"));
+
+				function setupCapsuleStory() {
+					ScrollTrigger.getById("windowOpenTrigger")?.kill();
+					ScrollTrigger.getAll().forEach(function (trigger) {
+						if (trigger.vars && trigger.vars.id && String(trigger.vars.id).indexOf("storyCard") === 0) {
+							trigger.kill();
+						}
+						if (trigger.vars && trigger.vars.id && String(trigger.vars.id).indexOf("storyImage") === 0) {
+							trigger.kill();
+						}
+					});
+
+					gsap.set(windowLeft, { xPercent: 0 });
+					gsap.set(windowRight, { xPercent: 0 });
+					gsap.set(windowCenterLine, { opacity: 1 });
+					gsap.set(storyPanels, { y: 46, opacity: 0 });
+					gsap.set(processImages, { scale: 1.18, y: 24 });
+
+					ScrollTrigger.create({
+						id: "windowOpenTrigger",
+						trigger: storyWindow,
+						start: "top 62%",
+						onEnter: function () {
+							const openTl = gsap.timeline();
+							openTl
+								.to(windowLeft, { xPercent: -102, duration: 1.05, ease: "power3.inOut" }, 0)
+								.to(windowRight, { xPercent: 102, duration: 1.05, ease: "power3.inOut" }, 0)
+								.to(windowCenterLine, { opacity: 0, duration: 0.35, ease: "power2.out" }, 0.2);
+						},
+						onLeaveBack: function () {
+							gsap.to(windowLeft, { xPercent: 0, duration: 0.6, ease: "power2.out" });
+							gsap.to(windowRight, { xPercent: 0, duration: 0.6, ease: "power2.out" });
+							gsap.to(windowCenterLine, { opacity: 1, duration: 0.2, ease: "power2.out" });
+						}
+					});
+
+					storyPanels.forEach(function (panel, index) {
+						gsap.to(panel, {
+							y: 0,
+							opacity: 1,
+							duration: 0.9,
+							ease: "power2.out",
+							scrollTrigger: {
+								id: "storyCard" + index,
+								trigger: panel,
+								start: "top 68%"
+							}
+						});
+					});
+
+					processImages.forEach(function (image, index) {
+						gsap.to(image, {
+							scale: 1,
+							y: -22,
+							ease: "none",
+							scrollTrigger: {
+								id: "storyImage" + index,
+								trigger: image.closest(".process-card"),
+								start: "top bottom",
+								end: "bottom top",
+								scrub: true
+							}
+						});
+					});
+				}
+
+				window.addEventListener("load", function () {
+					setTimeout(setupCapsuleStory, 120);
+				});
+				window.addEventListener("resize", function () {
+					setTimeout(setupCapsuleStory, 120);
+				});
+				setTimeout(setupCapsuleStory, 90);
+			}
+
+const reviewsGrid = document.getElementById("reviewsGrid");
+				if (reviewsGrid) {
+					const reviewNames = ["Rina M.", "Caleb T.", "Nina R.", "Dev P.", "Asha K.", "Jordan L.", "Meera S.", "Chris B.", "Lina D.", "Samar V.", "Priya N.", "Mason K."];
+					const reviewAvatars = [
+						"https://randomuser.me/api/portraits/women/44.jpg",
+						"https://randomuser.me/api/portraits/men/32.jpg",
+						"https://randomuser.me/api/portraits/women/68.jpg",
+						"https://randomuser.me/api/portraits/men/77.jpg",
+						"https://randomuser.me/api/portraits/women/21.jpg",
+						"https://randomuser.me/api/portraits/men/11.jpg",
+						"https://randomuser.me/api/portraits/women/54.jpg",
+						"https://randomuser.me/api/portraits/men/46.jpg",
+						"https://randomuser.me/api/portraits/women/39.jpg",
+						"https://randomuser.me/api/portraits/men/58.jpg",
+						"https://randomuser.me/api/portraits/women/17.jpg",
+						"https://randomuser.me/api/portraits/men/63.jpg"
+					];
+					const reviewQuotes = [
+						"Noticeably less post-meal heaviness after two weeks. It fits my routine without effort.",
+						"Energy feels cleaner through the afternoon and I like the simple ingredient profile.",
+						"This blend has become a daily staple. Shipping was fast and the quality feels premium.",
+						"I wanted liver support without complicated plans. This one is straightforward and works for me.",
+						"Digestive comfort improved and I feel less sluggish on busy workdays.",
+						"Great value on multi-bottle packs. Consistency has made a clear difference for me.",
+						"No harsh feeling, just steady support. I appreciate how clean the formula is.",
+						"I was skeptical at first, but by week three I felt a more balanced rhythm.",
+						"Easy to stay consistent with. The routine feels sustainable, which matters most.",
+						"Good wellness support with no fuss. Customer experience has been excellent too.",
+						"I pair it with hydration and cleaner meals, and results have been very positive.",
+						"One of the few supplements I actually repurchase because I can feel the difference."
+					];
+					const reviewTotal = 110;
+					const reviews = [];
+
+					for (let i = 0; i < reviewTotal; i++) {
+						const name = reviewNames[i % reviewNames.length];
+						const avatar = reviewAvatars[i % reviewAvatars.length];
+						const quote = reviewQuotes[i % reviewQuotes.length];
+						const daysAgo = (i % 27) + 1;
+						reviews.push({ name: name, avatar: avatar, quote: quote, daysAgo: daysAgo });
+					}
+
+					reviewsGrid.innerHTML = reviews
+						.map(function (review, index) {
+							return (
+								'<article class="review-card scroll-reveal" data-index="' + index + '">' +
+								'<div class="review-top"><div class="review-user"><img class="review-avatar" src="' + review.avatar + '" alt="Customer photo" loading="lazy" /><div class="review-meta"><div class="review-name">' + review.name + ' | Verified Buyer</div><div class="review-time">' + review.daysAgo + 'd ago</div></div></div></div>' +
+								'<div class="review-stars">★★★★★</div>' +
+								'<p class="review-text">"' + review.quote + '"</p>' +
+								'</article>'
+							);
+						})
+						.join("");
+
+					const cards = Array.from(reviewsGrid.querySelectorAll(".review-card"));
+					
+					// Create infinite marquee animation
+					let marqueeTimeline;
+
+					function setupMarquee() {
+						const gridWidth = reviewsGrid.scrollWidth;
+						const viewportWidth = reviewsGrid.offsetParent.clientWidth - 60;
+	
+						console.log("Grid width:", gridWidth, "Viewport:", viewportWidth);
+	
+						if (gridWidth > 0) {
+							// Kill previous timeline if it exists
+							if (marqueeTimeline) {
+								marqueeTimeline.kill();
+							}
+		
+							// Create timeline for infinite loop
+							marqueeTimeline = gsap.timeline({ repeat: -1 });
+		
+							marqueeTimeline.to(reviewsGrid, {
+								x: -gridWidth,
+								duration: gridWidth / 80, // Speed: 80px per second
+								ease: "none"
+							})
+							.set(reviewsGrid, { x: 0 }, gridWidth / 80); // Reset to start position
+		
+							// Add hover pause/resume to all cards
+							cards.forEach(card => {
+								card.addEventListener("mouseenter", () => {
+									marqueeTimeline.pause();
+								});
+								card.addEventListener("mouseleave", () => {
+									marqueeTimeline.play();
+								});
+							});
+						}
+					}
+					
+					// Set up after DOM is ready
+					if (document.readyState === "loading") {
+						document.addEventListener("DOMContentLoaded", setupMarquee);
+					} else {
+						setupMarquee();
+					}
+					
+					window.addEventListener("load", function() {
+						setTimeout(setupMarquee, 200);
+					});
+			}
+
 			const jumpTargets = ["topBuy", "heroBuy", "heroBuyNow", "stickyBuyBtn"];
 			jumpTargets.forEach(function (id) {
 				const el = document.getElementById(id);
@@ -1436,12 +2269,6 @@
 				heroAddCart.addEventListener("click", function () {
 					addToCartBtn.click();
 				});
-			}
-
-			let selectedPrice = 24.99;
-
-			function toCurrency(amount) {
-				return "$" + amount.toFixed(2);
 			}
 
 			function safeQty() {
