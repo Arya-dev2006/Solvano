@@ -34,9 +34,37 @@
 			padding: 0;
 			font-family: "Trebuchet MS", "Segoe UI", sans-serif;
 			color: var(--ink);
-			background: radial-gradient(circle at top right, #f1ffd8 0%, #f9ffee 30%, #ffffff 68%);
+			background: radial-gradient(circle at top right, #dcecc3 0%, #edf7dc 34%, #f4faea 72%);
 			scroll-behavior: smooth;
 			overflow-x: hidden;
+		}
+
+		body {
+			font-weight: 500;
+			text-rendering: optimizeLegibility;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-weight: 800;
+			letter-spacing: 0.01em;
+		}
+
+		p,
+		li,
+		small,
+		label,
+		summary,
+		button,
+		input,
+		textarea,
+		select {
+			font-weight: 600;
 		}
 
 		img {
@@ -132,6 +160,8 @@
 
 		main {
 			padding-bottom: 108px;
+			position: relative;
+			z-index: 1;
 		}
 
 		.shape-blob {
@@ -309,6 +339,18 @@
 		.slide {
 			min-width: 100%;
 			padding: 4px;
+		}
+
+		.slide-hero-image {
+			width: 100%;
+			height: 420px;
+			object-fit: contain;
+			object-position: center;
+			padding: 5px;
+			background: linear-gradient(150deg, #f8ffe7, #e5f7bf);
+			border-radius: 24px;
+			border: 2px solid #cbe89d;
+			box-shadow: inset 0 -8px 20px rgba(126, 176, 57, 0.15);
 		}
 
 		.slider-nav {
@@ -742,6 +784,24 @@
 			margin-top: 26px;
 			padding-top: 18px;
 			border-top: 1px solid rgba(230, 246, 208, 0.28);
+			position: relative;
+		}
+
+		.research-block::before {
+			content: "Research Dossier";
+			position: absolute;
+			top: -14px;
+			left: 50%;
+			transform: translateX(-50%);
+			padding: 4px 10px;
+			border-radius: 999px;
+			font-size: 0.66rem;
+			font-weight: 900;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			color: #35511f;
+			background: #eaf7cf;
+			border: 1px solid #c2dc97;
 		}
 
 		.research-title {
@@ -761,61 +821,273 @@
 			margin-inline: auto;
 		}
 
+		.research-side-fill {
+			position: absolute;
+			top: 54px;
+			bottom: 6px;
+			width: 120px;
+			pointer-events: none;
+			z-index: 0;
+		}
+
+		.research-side-fill.left {
+			left: -80px;
+		}
+
+		.research-side-fill.right {
+			right: -80px;
+		}
+
+		.research-side-fill span {
+			position: absolute;
+			display: block;
+			border: 1px solid rgba(202, 229, 166, 0.58);
+			background: linear-gradient(135deg, rgba(229, 247, 198, 0.55), rgba(193, 221, 153, 0.25));
+			box-shadow: 0 10px 20px rgba(32, 51, 20, 0.14);
+			animation: researchShapeFloat 7.2s ease-in-out infinite;
+		}
+
+		.research-side-fill.left span:nth-child(1) {
+			top: 30px;
+			left: 28px;
+			width: 34px;
+			height: 34px;
+			border-radius: 11px;
+			transform: rotate(-14deg);
+		}
+
+		.research-side-fill.left span:nth-child(2) {
+			top: 132px;
+			left: 5px;
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			animation-delay: -1.8s;
+		}
+
+		.research-side-fill.left span:nth-child(3) {
+			top: 218px;
+			left: 42px;
+			width: 48px;
+			height: 24px;
+			border-radius: 999px;
+			transform: rotate(8deg);
+			animation-delay: -3.1s;
+		}
+
+		.research-side-fill.left span:nth-child(4) {
+			top: 312px;
+			left: 18px;
+			width: 26px;
+			height: 26px;
+			border-radius: 8px;
+			transform: rotate(28deg);
+			animation-delay: -0.8s;
+		}
+
+		.research-side-fill.right span:nth-child(1) {
+			top: 18px;
+			right: 20px;
+			width: 42px;
+			height: 20px;
+			border-radius: 999px;
+			transform: rotate(-10deg);
+		}
+
+		.research-side-fill.right span:nth-child(2) {
+			top: 112px;
+			right: 46px;
+			width: 20px;
+			height: 20px;
+			border-radius: 6px;
+			transform: rotate(20deg);
+			animation-delay: -2.6s;
+		}
+
+		.research-side-fill.right span:nth-child(3) {
+			top: 198px;
+			right: 10px;
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			animation-delay: -1.2s;
+		}
+
+		.research-side-fill.right span:nth-child(4) {
+			top: 294px;
+			right: 36px;
+			width: 30px;
+			height: 30px;
+			border-radius: 10px;
+			transform: rotate(-24deg);
+			animation-delay: -3.9s;
+		}
+
+		@keyframes researchShapeFloat {
+			0%,
+			100% {
+				transform: translateY(0) rotate(0deg);
+				opacity: 0.72;
+			}
+			50% {
+				transform: translateY(-12px) rotate(6deg);
+				opacity: 1;
+			}
+		}
+
 		.research-pairs {
 			display: grid;
-			gap: 14px;
+			gap: 16px;
 			grid-template-columns: repeat(2, minmax(0, 1fr));
+			position: relative;
+			z-index: 1;
 		}
 
 		.research-pair {
+			--tilt: -1deg;
+			--offset: 0px;
 			display: grid;
-			grid-template-columns: 180px 1fr;
-			gap: 12px;
-			align-items: stretch;
+			grid-template-rows: 190px 1fr;
+			gap: 0;
+			border-radius: 14px;
+			overflow: hidden;
+			border: 8px solid rgba(255, 255, 255, 0.92);
+			border-bottom-width: 18px;
+			outline: 1px solid #c4dca1;
+			background: #ffffff;
+			box-shadow: 0 14px 24px rgba(25, 39, 14, 0.24);
+			position: relative;
+			transition: transform 0.28s ease, box-shadow 0.28s ease;
+			transform: translateY(var(--offset)) rotate(var(--tilt));
+			transform-origin: 50% 24%;
 		}
+
+		.research-pair:hover {
+			transform: translateY(calc(var(--offset) - 8px)) rotate(var(--tilt)) scale(1.01);
+			box-shadow: 0 20px 32px rgba(36, 59, 20, 0.3);
+		}
+
+		.research-pair::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 72px;
+			height: 72px;
+			background: linear-gradient(135deg, rgba(191, 220, 151, 0.62), rgba(191, 220, 151, 0));
+			pointer-events: none;
+		}
+
+		.research-pair::after {
+			content: attr(data-note);
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			z-index: 3;
+			padding: 4px 8px;
+			border-radius: 6px;
+			font-size: 0.64rem;
+			font-weight: 800;
+			letter-spacing: 0.6px;
+			text-transform: uppercase;
+			color: #35511f;
+			background: rgba(239, 252, 215, 0.92);
+			border: 1px solid rgba(191, 220, 151, 0.95);
+		}
+
+		.research-pair:nth-child(1) { --tilt: -1.8deg; --offset: 2px; }
+		.research-pair:nth-child(2) { --tilt: 1.4deg; --offset: 12px; }
+		.research-pair:nth-child(3) { --tilt: 1.1deg; --offset: -2px; }
+		.research-pair:nth-child(4) { --tilt: -1.5deg; --offset: 10px; }
 
 		.research-image {
-			border-radius: 14px;
-			background: linear-gradient(165deg, #f3ffe3 0%, #d9f1ba 100%);
-			border: 1px solid #bfdc97;
-			display: grid;
-			place-items: center;
-			padding: 12px;
-			box-shadow: 0 8px 16px rgba(36, 59, 20, 0.24);
+			position: relative;
+			height: 100%;
+			overflow: hidden;
+			background: #d2e8b1;
 		}
 
-		.research-image .counter {
+		.research-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.research-image::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(180deg, rgba(20, 34, 10, 0.1), rgba(20, 34, 10, 0.48));
+		}
+
+		.research-kpi {
+			position: absolute;
+			left: 12px;
+			right: 12px;
+			bottom: 12px;
+			z-index: 2;
+			padding: 8px 10px;
+			border-radius: 12px;
+			background: rgba(245, 255, 231, 0.88);
+			border: 1px solid rgba(184, 216, 143, 0.9);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 10px;
+		}
+
+		.research-kpi .counter {
 			font-size: 2rem;
 			font-weight: 900;
 			color: #2d4b1a;
 			line-height: 1;
 		}
 
-		.research-image .label {
-			margin-top: 6px;
+		.research-kpi .label {
 			font-size: 0.8rem;
 			font-weight: 700;
 			color: #456730;
+			text-align: right;
 		}
 
 		.research-text {
-			border-radius: 14px;
-			padding: 14px;
-			background: rgba(244, 255, 230, 0.07);
-			border: 1px solid rgba(200, 228, 166, 0.36);
+			padding: 14px 14px 12px;
+			background: linear-gradient(180deg, rgba(250, 255, 242, 0.95), rgba(238, 249, 220, 0.94));
+			border-top: 1px solid rgba(188, 216, 145, 0.78);
+			display: grid;
+			gap: 8px;
 		}
 
 		.research-text h4 {
 			margin: 0 0 8px;
 			font-size: 1rem;
-			color: #efffde;
+			color: #2f4c1c;
 		}
 
 		.research-text p {
 			margin: 0;
-			color: #d8efc0;
+			color: #4f663b;
 			line-height: 1.5;
 			font-size: 0.93rem;
+		}
+
+		.research-source {
+			font-size: 0.72rem;
+			font-weight: 700;
+			color: #58773e;
+			padding-top: 4px;
+			border-top: 1px dashed rgba(145, 182, 99, 0.5);
+		}
+
+		.research-foot {
+			justify-self: start;
+			padding: 4px 8px;
+			border-radius: 999px;
+			font-size: 0.7rem;
+			font-weight: 800;
+			color: #44652a;
+			background: #e8f8ca;
+			border: 1px solid #c6de9e;
 		}
 
 		.benefit-ribbon-wrap {
@@ -850,109 +1122,310 @@
 
 		.capsule-story {
 			position: relative;
-			padding: 92px 0 78px;
+			padding: 94px 0 82px;
 			background:
-				radial-gradient(circle at 8% 10%, rgba(210, 237, 168, 0.45), rgba(210, 237, 168, 0)),
-				radial-gradient(circle at 82% 90%, rgba(129, 176, 75, 0.26), rgba(129, 176, 75, 0)),
-				linear-gradient(180deg, #f9ffed 0%, #eef9dc 100%);
+				radial-gradient(circle at 14% 10%, rgba(161, 206, 102, 0.24), rgba(161, 206, 102, 0)),
+				radial-gradient(circle at 88% 90%, rgba(122, 166, 72, 0.2), rgba(122, 166, 72, 0)),
+				linear-gradient(180deg, #223418 0%, #1a2a12 52%, #15210f 100%);
+		}
+
+		.capsule-wave {
+			position: absolute;
+			left: 0;
+			top: -1px;
+			width: 100%;
+			height: 66px;
+			background: linear-gradient(180deg, #e8f5d0 0%, #d9edba 100%);
+			clip-path: path("M0,18 C120,52 240,0 360,20 C480,40 600,62 720,34 C840,6 960,4 1080,26 C1200,48 1320,54 1440,28 L1440,0 L0,0 Z");
+			opacity: 0.95;
+			pointer-events: none;
+			z-index: 1;
+		}
+
+		.capsule-story .container {
+			position: relative;
+			z-index: 2;
+		}
+
+		.capsule-story::before,
+		.capsule-story::after {
+			content: "";
+			position: absolute;
+			pointer-events: none;
+			opacity: 0.45;
+		}
+
+		.capsule-story::before {
+			width: 210px;
+			height: 210px;
+			left: -58px;
+			top: 44px;
+			background:
+				radial-gradient(circle at 40% 36%, rgba(214, 166, 112, 0.34), rgba(214, 166, 112, 0)),
+				linear-gradient(145deg, rgba(172, 129, 88, 0.22), rgba(172, 129, 88, 0));
+			border-radius: 52% 48% 64% 36% / 47% 52% 48% 53%;
+			transform: rotate(-14deg);
+		}
+
+		.capsule-story::after {
+			width: 280px;
+			height: 120px;
+			right: -66px;
+			bottom: 18px;
+			background: repeating-linear-gradient(90deg, rgba(176, 135, 93, 0.2) 0 8px, rgba(176, 135, 93, 0) 8px 18px);
+			border-radius: 18px;
+			transform: rotate(-8deg);
 		}
 
 		.story-head {
 			display: grid;
-			gap: 10px;
-			max-width: 72ch;
-			margin: 0 auto 26px;
-			text-align: center;
+			gap: 12px;
+			max-width: 76ch;
+			margin: 0 auto 30px;
+			text-align: left;
+			position: relative;
+			isolation: isolate;
+		}
+
+		.story-head > * {
+			position: relative;
+			z-index: 2;
+		}
+
+		.story-head::before {
+			content: "Batch Journal 04";
+			justify-self: start;
+			padding: 5px 10px;
+			border-radius: 6px;
+			font-size: 0.68rem;
+			font-weight: 800;
+			letter-spacing: 1.1px;
+			text-transform: uppercase;
+			color: #5d4633;
+			background: linear-gradient(180deg, #f7ead7, #ebd1b2);
+			border: 1px solid #c8a584;
+			box-shadow: 0 3px 0 rgba(104, 73, 47, 0.2);
 		}
 
 		.story-eyebrow {
-			font-size: 0.8rem;
+			font-size: 0.74rem;
 			font-weight: 800;
-			letter-spacing: 1px;
+			letter-spacing: 1.4px;
 			text-transform: uppercase;
-			color: #52742f;
+			color: #e7cfae;
 		}
 
 		.story-title {
 			margin: 0;
-			font-size: clamp(1.6rem, 3.4vw, 2.7rem);
-			line-height: 1.1;
-			color: #2e4a1d;
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: clamp(1.85rem, 3.8vw, 3.15rem);
+			line-height: 1.03;
+			color: #fff2e2;
+			letter-spacing: 0.2px;
 		}
 
 		.story-sub {
 			margin: 0;
-			color: #4a6339;
-			line-height: 1.6;
+			max-width: 70ch;
+			font-size: 1rem;
+			color: #e4ccb0;
+			line-height: 1.62;
 		}
 
 		.story-ingredients {
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: center;
-			gap: 8px;
-			margin-top: 6px;
+			justify-content: flex-start;
+			gap: 10px;
+			margin-top: 4px;
 		}
 
 		.story-chip {
-			padding: 6px 10px;
-			border-radius: 999px;
+			padding: 7px 11px;
+			border-radius: 7px;
 			font-size: 0.78rem;
 			font-weight: 700;
-			border: 1px solid #cbe3a5;
-			background: rgba(255, 255, 255, 0.78);
-			color: #365322;
+			background: linear-gradient(180deg, #fff9ef, #f5e5d2);
+			border: 1px solid #cfb08f;
+			color: #5f4735;
+			box-shadow: 0 3px 0 rgba(107, 77, 50, 0.18);
 		}
+
+		.story-side-shapes {
+			position: absolute;
+			inset: 0;
+			pointer-events: none;
+			z-index: 1;
+		}
+
+		.story-shape {
+			position: absolute;
+			opacity: 0.8;
+			filter: drop-shadow(0 6px 12px rgba(71, 47, 32, 0.24));
+		}
+
+		.story-shape.leaf {
+			width: 74px;
+			height: 32px;
+			border-radius: 10% 92% 12% 92%;
+			background: linear-gradient(140deg, #ffe8cd, #c98d5f);
+		}
+
+		.story-shape.seed {
+			width: 22px;
+			height: 30px;
+			border-radius: 58% 42% 50% 50% / 60% 52% 48% 40%;
+			background: radial-gradient(circle at 30% 28%, #fff0dd 0%, #cd9164 62%, #9f6e49 100%);
+		}
+
+		.story-shape.capsule {
+			width: 58px;
+			height: 24px;
+			border-radius: 999px;
+			background: linear-gradient(90deg, #fff2df 0 50%, #d29a6b 50% 100%);
+		}
+
+		.story-shape.r1 {
+			right: -122px;
+			top: 38px;
+			transform: rotate(14deg);
+			animation: storyFloat 4.6s ease-in-out infinite alternate;
+		}
+
+		.story-shape.r2 {
+			right: -98px;
+			top: 118px;
+			transform: rotate(-12deg);
+			animation: storyFloat 5.2s ease-in-out infinite alternate-reverse;
+		}
+
+		.story-shape.r3 {
+			right: -78px;
+			top: 176px;
+			transform: rotate(22deg);
+			animation: storySpin 8s linear infinite;
+		}
+
+		.story-shape.l1 {
+			left: -124px;
+			top: 46px;
+			transform: rotate(-18deg);
+			animation: storyFloat 4.9s ease-in-out infinite alternate;
+		}
+
+		.story-shape.l2 {
+			left: -90px;
+			top: 126px;
+			transform: rotate(16deg);
+			animation: storyFloat 5.4s ease-in-out infinite alternate-reverse;
+		}
+
+		.story-shape.l3 {
+			left: -72px;
+			top: 186px;
+			transform: rotate(-24deg);
+			animation: storySpin 10s linear infinite reverse;
+		}
+
+		@keyframes storyFloat {
+			0% {
+				transform: translateY(0) scale(1) rotate(var(--shape-rot, 0deg));
+			}
+			100% {
+				transform: translateY(-9px) scale(1.05) rotate(calc(var(--shape-rot, 0deg) + 3deg));
+			}
+		}
+
+		@keyframes storySpin {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		.story-shape.r1 { --shape-rot: 14deg; }
+		.story-shape.r2 { --shape-rot: -12deg; }
+		.story-shape.r3 { --shape-rot: 22deg; }
+		.story-shape.l1 { --shape-rot: -18deg; }
+		.story-shape.l2 { --shape-rot: 16deg; }
+		.story-shape.l3 { --shape-rot: -24deg; }
 
 		.story-window {
 			position: relative;
 			width: min(1080px, 94vw);
-			margin: 0 auto 30px;
-			border-radius: 28px;
+			margin: 0 auto 34px;
+			border-radius: 26px 26px 10px 10px;
 			overflow: hidden;
-			border: 1px solid #c2db9d;
-			background: #e9f6d2;
-			box-shadow: 0 18px 40px rgba(69, 101, 34, 0.2);
+			border: 2px solid #b58f6f;
+			background: #d9c3aa;
+			box-shadow: 0 16px 0 #8f6f53, 0 26px 44px rgba(48, 35, 26, 0.35);
+		}
+
+		.story-window::before {
+			content: "";
+			position: absolute;
+			left: 16px;
+			right: 16px;
+			top: 10px;
+			height: 8px;
+			border-radius: 5px;
+			background: repeating-linear-gradient(90deg, rgba(255, 237, 214, 0.75) 0 12px, rgba(255, 237, 214, 0.08) 12px 24px);
+			z-index: 8;
+			opacity: 0.85;
+		}
+
+		.story-window::after {
+			content: "";
+			position: absolute;
+			inset: 12px;
+			border: 1px dashed rgba(255, 226, 193, 0.38);
+			border-radius: 16px;
+			pointer-events: none;
+			z-index: 7;
 		}
 
 		.window-glass {
 			position: relative;
-			height: min(58vh, 520px);
-			background: #ddecbd;
+			height: min(56vh, 500px);
+			background: #d2bea4;
 		}
 
 		.window-glass img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			filter: saturate(1.02) contrast(1.04);
+			filter: saturate(1.08) contrast(1.06);
 		}
 
 		.window-overlay {
 			position: absolute;
 			inset: 0;
-			background:
-				linear-gradient(180deg, rgba(18, 31, 10, 0.08), rgba(18, 31, 10, 0.28));
+			background: linear-gradient(180deg, rgba(25, 18, 12, 0.06), rgba(25, 18, 12, 0.56));
 		}
 
 		.window-caption {
 			position: absolute;
-			left: 22px;
-			right: 22px;
-			bottom: 18px;
+			left: 20px;
+			right: 20px;
+			bottom: 14px;
 			display: grid;
-			gap: 6px;
-			color: #f7ffe8;
+			gap: 4px;
+			padding: 11px 13px;
+			border-radius: 11px;
+			background: rgba(44, 30, 21, 0.62);
+			backdrop-filter: blur(4px);
+			color: #fff2e0;
 			z-index: 5;
 		}
 
 		.window-caption strong {
-			font-size: clamp(1rem, 2vw, 1.35rem);
+			font-size: clamp(1.02rem, 2vw, 1.35rem);
+			line-height: 1.2;
 		}
 
 		.window-caption span {
-			font-size: 0.88rem;
-			color: #e5f8cb;
+			font-size: 0.84rem;
+			color: #f2d8bb;
+			line-height: 1.46;
 		}
 
 		.window-shutter {
@@ -962,18 +1435,19 @@
 			width: 50%;
 			z-index: 4;
 			background:
-				repeating-linear-gradient(90deg, #4e6f2f 0 14px, #466629 14px 28px);
-			box-shadow: inset 0 0 0 1px rgba(245, 255, 234, 0.14);
+				repeating-linear-gradient(90deg, #7f6148 0 12px, #6b503c 12px 24px),
+				linear-gradient(180deg, rgba(255, 236, 214, 0.16), rgba(255, 236, 214, 0));
+			box-shadow: inset 0 0 0 1px rgba(255, 229, 198, 0.22);
 		}
 
 		.window-shutter.left {
 			left: 0;
-			border-right: 1px solid rgba(241, 255, 222, 0.42);
+			border-right: 2px solid rgba(255, 223, 192, 0.32);
 		}
 
 		.window-shutter.right {
 			right: 0;
-			border-left: 1px solid rgba(241, 255, 222, 0.42);
+			border-left: 2px solid rgba(255, 223, 192, 0.32);
 		}
 
 		.window-center-line {
@@ -981,38 +1455,168 @@
 			top: 0;
 			bottom: 0;
 			left: 50%;
-			width: 2px;
+			width: 3px;
 			z-index: 6;
-			background: rgba(248, 255, 236, 0.6);
+			background: rgba(255, 232, 205, 0.7);
 			transform: translateX(-50%);
 		}
 
 		.capsule-scroll-wrap {
 			overflow: visible;
+			position: relative;
+			--capsule-pad: clamp(16px, 3vw, 36px);
+			width: 100vw;
+			margin-left: calc(50% - 50vw);
+			margin-right: calc(50% - 50vw);
+			padding-left: calc(var(--capsule-pad) + 30px);
+			padding-right: var(--capsule-pad);
+		}
+
+		.capsule-scroll-wrap::before {
+			content: "";
+			position: absolute;
+			left: calc(var(--capsule-pad) + 2px);
+			top: 14px;
+			bottom: 14px;
+			width: 8px;
+			border-radius: 10px;
+			background: repeating-linear-gradient(180deg, #9a7a5b 0 20px, #7f644c 20px 34px);
 		}
 
 		.capsule-track {
 			display: grid;
 			grid-template-columns: repeat(2, minmax(0, 1fr));
-			gap: 16px;
+			gap: 20px 18px;
+			width: 100%;
 		}
 
 		.process-card {
 			display: grid;
 			gap: 12px;
-			padding: 14px;
-			border-radius: 22px 8px 22px 22px;
-			border: 1px solid #c6dea0;
-			background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(242, 252, 223, 0.88));
-			box-shadow: 0 12px 26px rgba(83, 121, 42, 0.18);
+			padding: 16px;
+			border-radius: 10px;
+			border: 1px solid #ccb090;
+			background:
+				repeating-linear-gradient(0deg, rgba(156, 116, 83, 0.05) 0 1px, rgba(156, 116, 83, 0) 1px 22px),
+				linear-gradient(180deg, #fff9f2, #f6eadd);
+			box-shadow: 0 10px 20px rgba(96, 69, 49, 0.18);
+			width: 100%;
+		}
+
+		.process-card.story-panel {
+			position: relative;
+			isolation: isolate;
+			overflow: visible;
+			transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, filter 0.35s ease;
+			filter: saturate(0.92);
+		}
+
+		.process-card.story-panel:nth-child(1) {
+			transform: rotate(-0.65deg);
+		}
+
+		.process-card.story-panel:nth-child(2) {
+			transform: rotate(0.8deg) translateY(12px);
+		}
+
+		.process-card.story-panel:nth-child(3) {
+			transform: rotate(0.4deg);
+		}
+
+		.process-card.story-panel:nth-child(4) {
+			transform: rotate(-0.75deg) translateY(12px);
+		}
+
+		.process-card.story-panel::before {
+			content: "";
+			position: absolute;
+			top: -10px;
+			left: 20px;
+			width: 72px;
+			height: 18px;
+			border-radius: 4px;
+			background: rgba(233, 205, 175, 0.74);
+			border: 1px solid rgba(170, 128, 89, 0.38);
+			transform: rotate(-2deg);
+		}
+
+		.process-card.story-panel::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -2px;
+			height: 4px;
+			background: linear-gradient(90deg, #d09a66, #a47145);
+			transform: scaleX(var(--panel-progress, 0.08));
+			transform-origin: left center;
+			transition: transform 0.25s ease;
+		}
+
+		.story-marker {
+			position: absolute;
+			left: -34px;
+			top: 18px;
+			width: 28px;
+			height: 28px;
+			border-radius: 8px;
+			display: grid;
+			place-items: center;
+			background: linear-gradient(180deg, #fff0dc, #e8c7a3);
+			border: 1px solid #9d7654;
+			box-shadow: 0 4px 0 #7f5f45;
+			font-weight: 900;
+			font-size: 0.8rem;
+			color: #5a412f;
+		}
+
+		.process-card.story-panel:nth-child(1) .story-marker::after {
+			content: "1";
+		}
+
+		.process-card.story-panel:nth-child(2) .story-marker::after {
+			content: "2";
+		}
+
+		.process-card.story-panel:nth-child(3) .story-marker::after {
+			content: "3";
+		}
+
+		.process-card.story-panel:nth-child(4) .story-marker::after {
+			content: "4";
+		}
+
+		.process-card.story-panel.is-active {
+			transform: rotate(0deg) scale(1.02) translateY(-5px);
+			border-color: #b7885f;
+			box-shadow: 0 18px 30px rgba(71, 50, 35, 0.32);
+			filter: saturate(1.05);
+		}
+
+		.process-card.story-panel.is-active .story-marker {
+			transform: translateY(-4px);
+			background: linear-gradient(180deg, #fff6eb, #efd2b5);
+			box-shadow: 0 6px 0 #7a5a42;
 		}
 
 		.process-image {
 			position: relative;
-			height: 240px;
-			border-radius: 14px;
+			height: 228px;
+			border-radius: 7px;
 			overflow: hidden;
-			background: #e1f1c3;
+			background: #dec6ad;
+			border: 1px solid #c2a486;
+		}
+
+		.process-image::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background:
+				radial-gradient(circle at 80% 8%, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0)),
+				linear-gradient(180deg, rgba(16, 22, 10, 0), rgba(16, 22, 10, 0.28));
+			opacity: 0.62;
+			transition: opacity 0.3s ease;
 		}
 
 		.process-image img {
@@ -1022,54 +1626,127 @@
 			will-change: transform;
 		}
 
+		.process-card.story-panel.is-active .process-image::after {
+			opacity: 0.36;
+		}
+
 		.process-badge {
 			position: absolute;
 			top: 10px;
 			left: 10px;
 			padding: 6px 10px;
-			border-radius: 999px;
-			font-size: 0.72rem;
+			border-radius: 6px;
+			font-size: 0.7rem;
 			font-weight: 800;
-			color: #2f4c1c;
-			background: rgba(247, 255, 233, 0.92);
-			border: 1px solid rgba(129, 178, 76, 0.52);
+			letter-spacing: 0.5px;
+			color: #4d3627;
+			background: rgba(255, 240, 222, 0.94);
+			border: 1px solid #c9a685;
 		}
 
 		.process-copy {
 			display: grid;
 			gap: 8px;
+			position: relative;
+			padding-bottom: 22px;
 		}
 
-		.process-step {
-			font-size: 0.8rem;
+		.process-card.story-panel .process-copy::after {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			padding: 3px 8px;
+			border-radius: 6px;
+			font-size: 0.67rem;
 			font-weight: 800;
 			letter-spacing: 0.8px;
 			text-transform: uppercase;
-			color: #557731;
+			color: #5c4130;
+			background: linear-gradient(180deg, #fff1df, #ebccab);
+			border: 1px solid #c29e7d;
+			box-shadow: 0 2px 0 rgba(110, 81, 56, 0.24);
+		}
+
+		.process-card.story-panel:nth-child(1) .process-copy::after {
+			content: "Field Note: Harvest Dawn";
+		}
+
+		.process-card.story-panel:nth-child(2) .process-copy::after {
+			content: "Lab Note: Purity Ledger";
+		}
+
+		.process-card.story-panel:nth-child(3) .process-copy::after {
+			content: "Blend Log: Ratio Locked";
+		}
+
+		.process-card.story-panel:nth-child(4) .process-copy::after {
+			content: "Release Note: Seal Verified";
+		}
+
+		.process-step {
+			font-size: 0.74rem;
+			font-weight: 800;
+			letter-spacing: 1.2px;
+			text-transform: uppercase;
+			color: #9f7757;
 		}
 
 		.process-copy h3 {
 			margin: 0;
-			font-size: clamp(1.05rem, 2vw, 1.34rem);
-			line-height: 1.18;
-			color: #2e4a1d;
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: clamp(1.1rem, 2vw, 1.42rem);
+			line-height: 1.2;
+			color: #523b2c;
 		}
 
 		.process-copy p {
 			margin: 0;
-			font-size: 0.93rem;
-			line-height: 1.58;
-			color: #486237;
+			font-size: 0.92rem;
+			line-height: 1.63;
+			color: #6a4f3b;
 		}
 
 		.process-meta {
 			padding: 8px 10px;
-			border: 1px dashed #b9d590;
-			border-radius: 12px;
-			background: rgba(255, 255, 255, 0.66);
-			font-size: 0.83rem;
+			border: 1px dashed #bf9d7d;
+			border-radius: 8px;
+			background: rgba(255, 244, 232, 0.62);
+			font-size: 0.81rem;
 			font-weight: 700;
-			color: #3e5c2a;
+			color: #644b38;
+		}
+
+		.story-progress {
+			position: absolute;
+			left: 20px;
+			right: 20px;
+			bottom: 0;
+			height: 8px;
+			background: rgba(232, 203, 173, 0.54);
+			overflow: hidden;
+			z-index: 7;
+		}
+
+		.story-progress > span {
+			display: block;
+			height: 100%;
+			width: 100%;
+			background: repeating-linear-gradient(90deg, #d3a06a 0 14px, #b58152 14px 28px);
+			transform: scaleX(0);
+			transform-origin: left center;
+		}
+
+		.story-progress > span::after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 50%;
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			transform: translate(50%, -50%);
+			background: radial-gradient(circle at 30% 30%, #fff3e3 0%, #e0b382 45%, #b58151 100%);
+			box-shadow: 0 0 0 3px rgba(230, 190, 152, 0.36);
 		}
 
 		.icon {
@@ -1217,13 +1894,15 @@
 		.review-card {
 			flex: 0 0 320px;
 			min-width: 320px;
-			background: linear-gradient(135deg, #ffffff 0%, #f8ffe7 100%);
-			border: 1.5px solid #cfe5ad;
-			border-radius: 24px 8px 24px 24px;
+			background:
+				radial-gradient(circle at 88% 8%, rgba(195, 229, 143, 0.24), rgba(195, 229, 143, 0)),
+				linear-gradient(135deg, #ffffff 0%, #f5fedd 100%);
+			border: 1.5px solid #c5dea2;
+			border-radius: 24px 10px 24px 24px;
 			padding: 18px;
-			box-shadow: 0 12px 28px rgba(86, 125, 45, 0.15);
+			box-shadow: 0 14px 30px rgba(86, 125, 45, 0.16);
 			display: grid;
-			gap: 10px;
+			gap: 11px;
 			transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 			position: relative;
 			overflow: hidden;
@@ -1234,10 +1913,22 @@
 			position: absolute;
 			top: -2px;
 			right: -2px;
-			width: 100px;
-			height: 100px;
-			background: radial-gradient(circle, rgba(139, 193, 86, 0.1), rgba(139, 193, 86, 0));
+			width: 120px;
+			height: 120px;
+			background: radial-gradient(circle, rgba(139, 193, 86, 0.16), rgba(139, 193, 86, 0));
 			border-radius: 50%;
+			pointer-events: none;
+		}
+
+		.review-card::after {
+			content: "\201C";
+			position: absolute;
+			right: 12px;
+			bottom: -6px;
+			font-size: 74px;
+			line-height: 1;
+			font-family: Georgia, "Times New Roman", serif;
+			color: rgba(103, 151, 51, 0.22);
 			pointer-events: none;
 		}
 
@@ -1246,11 +1937,26 @@
 			box-shadow: 0 18px 38px rgba(73, 108, 38, 0.25);
 		}
 
+		.review-badge {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			padding: 5px 8px;
+			border-radius: 999px;
+			font-size: 0.67rem;
+			font-weight: 800;
+			letter-spacing: 0.5px;
+			color: #34541f;
+			background: linear-gradient(180deg, #ecf9d0, #d8efac);
+			border: 1px solid #bddc8f;
+		}
+
 		.review-top {
 			display: flex;
 			justify-content: space-between;
-			align-items: center;
+			align-items: flex-start;
 			gap: 10px;
+			padding-right: 74px;
 		}
 
 		.review-user {
@@ -1290,10 +1996,38 @@
 			color: #608047;
 		}
 
+		.review-pack {
+			padding: 5px 8px;
+			border-radius: 8px;
+			font-size: 0.7rem;
+			font-weight: 700;
+			white-space: nowrap;
+			color: #446428;
+			background: rgba(234, 247, 206, 0.86);
+			border: 1px solid #c6dfa0;
+		}
+
+		.review-kpis {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 8px;
+			padding: 7px 9px;
+			border-radius: 10px;
+			background: rgba(249, 255, 234, 0.92);
+			border: 1px solid #d0e7ae;
+		}
+
 		.review-stars {
 			font-size: 0.92rem;
 			letter-spacing: 1px;
 			color: #FFD700;
+		}
+
+		.review-score {
+			font-size: 0.76rem;
+			font-weight: 800;
+			color: #486735;
 		}
 
 		.review-text {
@@ -1301,6 +2035,22 @@
 			color: #455d36;
 			line-height: 1.55;
 			font-size: 0.92rem;
+		}
+
+		.review-footer {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 0.74rem;
+			font-weight: 700;
+			color: #5c7844;
+		}
+
+		.review-helpful {
+			padding: 4px 8px;
+			border-radius: 999px;
+			background: rgba(230, 246, 200, 0.95);
+			border: 1px solid #c8df9f;
 		}
 
 		.feedback-scroller {
@@ -1413,6 +2163,37 @@
 				grid-template-columns: 1fr;
 			}
 
+			.story-head {
+				text-align: center;
+			}
+
+			.story-head::before {
+				justify-self: center;
+			}
+
+			.story-ingredients {
+				justify-content: center;
+			}
+
+			.story-shape.l1,
+			.story-shape.l2,
+			.story-shape.l3 {
+				left: -34px;
+			}
+
+			.story-shape.r1,
+			.story-shape.r2,
+			.story-shape.r3 {
+				right: -34px;
+			}
+
+			.process-card.story-panel:nth-child(1),
+			.process-card.story-panel:nth-child(2),
+			.process-card.story-panel:nth-child(3),
+			.process-card.story-panel:nth-child(4) {
+				transform: none;
+			}
+
 			.feedback-track {
 				--reviews-per-view: 2;
 			}
@@ -1456,8 +2237,24 @@
 				padding: 70px 0 54px;
 			}
 
+			.capsule-wave {
+				height: 44px;
+			}
+
+			.story-side-shapes {
+				display: none;
+			}
+
 			.story-window {
-				border-radius: 20px;
+				border-radius: 16px;
+				box-shadow: 0 10px 0 #8f6f53, 0 18px 24px rgba(48, 35, 26, 0.24);
+			}
+
+			.story-window::before,
+			.story-window::after,
+			.capsule-story::before,
+			.capsule-story::after {
+				display: none;
 			}
 
 			.window-glass {
@@ -1474,12 +2271,41 @@
 				height: 205px;
 			}
 
+			.process-card.story-panel.is-active {
+				transform: none;
+			}
+
+			.capsule-scroll-wrap {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+
+			.capsule-scroll-wrap::before {
+				display: none;
+			}
+
+			.story-marker {
+				display: none;
+			}
+
 			.benefit-grid {
 				--cards-per-view: 1;
 			}
 
 			.research-pair {
-				grid-template-columns: 1fr;
+				grid-template-rows: 180px 1fr;
+				transform: none;
+			}
+
+			.research-side-fill {
+				display: none;
+			}
+
+			.research-pair:nth-child(1),
+			.research-pair:nth-child(2),
+			.research-pair:nth-child(3),
+			.research-pair:nth-child(4) {
+				transform: none;
 			}
 
 			.research-pairs {
@@ -1540,13 +2366,7 @@
 						<div class="product-slider" id="productSlider">
 							<div class="slider-track" id="sliderTrack">
 								<div class="slide">
-									<div class="mock-bottle">
-										<div class="mock-label">
-											<small>SOLVANO</small>
-											<h3>MILK THISTLE</h3>
-											<p>120 Capsules</p>
-										</div>
-									</div>
+									<img class="slide-hero-image" src="https://getuvora.com/cdn/shop/files/Untitled_3.png?v=1774661846" alt="Uvora product bottle" loading="lazy" />
 								</div>
 								<div class="slide">
 									<div class="slide-card">
@@ -1744,10 +2564,24 @@
 						Silymarin, the active compound in milk thistle, is one of the most studied liver support ingredients in the world.
 					</p>
 
+						<div class="research-side-fill left" aria-hidden="true">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<div class="research-side-fill right" aria-hidden="true">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+
 					<div class="research-pairs">
-						<div class="research-pair">
+						<div class="research-pair" data-note="Trial Lens">
 							<div class="research-image" aria-label="counter-img">
-								<div>
+								<img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80" alt="Fresh greens and herbal nutrition" loading="lazy" />
+								<div class="research-kpi">
 									<div class="counter">62%</div>
 									<div class="label">ALT Enzyme Reduction</div>
 								</div>
@@ -1755,12 +2589,15 @@
 							<div class="research-text">
 								<h4>Clinical Liver Marker Improvement</h4>
 								<p>Reduction in ALT liver enzyme levels observed in clinical trials using silymarin supplementation.*</p>
+								<div class="research-source">Source: Controlled liver marker trial summary</div>
+								<div class="research-foot">Marker Shift Verified</div>
 							</div>
 						</div>
 
-						<div class="research-pair">
+						<div class="research-pair" data-note="Potency Audit">
 							<div class="research-image" aria-label="counter-img">
-								<div>
+								<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=80" alt="Milk thistle and botanical preparation" loading="lazy" />
+								<div class="research-kpi">
 									<div class="counter">80%</div>
 									<div class="label">Silymarin Concentration</div>
 								</div>
@@ -1768,12 +2605,15 @@
 							<div class="research-text">
 								<h4>Clinically Aligned Potency</h4>
 								<p>Silymarin concentration threshold used in studies showing meaningful liver support. Many brands use 50 to 65%.</p>
+								<div class="research-source">Source: Potency benchmarks in published reviews</div>
+								<div class="research-foot">Potency Standardized</div>
 							</div>
 						</div>
 
-						<div class="research-pair">
+						<div class="research-pair" data-note="Meta Review">
 							<div class="research-image" aria-label="counter-img">
-								<div>
+								<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80" alt="Clinical research and supplement analysis" loading="lazy" />
+								<div class="research-kpi">
 									<div class="counter">29</div>
 									<div class="label">Clinical Trials Reviewed</div>
 								</div>
@@ -1781,12 +2621,15 @@
 							<div class="research-text">
 								<h4>Strong Research Depth</h4>
 								<p>Randomised clinical trials in a 2023 systematic review confirm silymarin's potential to support healthy liver enzyme levels.*</p>
+								<div class="research-source">Source: 2023 systematic synthesis</div>
+								<div class="research-foot">Evidence Layered</div>
 							</div>
 						</div>
 
-						<div class="research-pair">
+						<div class="research-pair" data-note="Formula Matrix">
 							<div class="research-image" aria-label="counter-img">
-								<div>
+								<img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=900&q=80" alt="Multiple natural ingredients assembled" loading="lazy" />
+								<div class="research-kpi">
 									<div class="counter">8</div>
 									<div class="label">Active Ingredients</div>
 								</div>
@@ -1794,6 +2637,8 @@
 							<div class="research-text">
 								<h4>Comprehensive Formula Support</h4>
 								<p>Eight active ingredients targeting liver support, gut defense, and glucose balance in one coordinated daily blend.</p>
+								<div class="research-source">Source: Blend design protocol</div>
+								<div class="research-foot">Multi-Target Blend</div>
 							</div>
 						</div>
 					</div>
@@ -1802,96 +2647,6 @@
 			</div>
 			<div class="benefit-ribbon-wrap">
 				<div class="ribbon">Clinically Studied Formula</div>
-			</div>
-		</section>
-
-		<section class="capsule-story" id="capsuleStory">
-			<div class="container">
-				<div class="story-head">
-					<div class="story-eyebrow">Inside Every Bottle</div>
-					<h2 class="story-title">Every Capsule Is Packed With Essentials</h2>
-					<p class="story-sub">8 active ingredients. Perfect dosages. Scroll to open the story window, then follow how each batch moves from raw botanicals to final sealed capsules.</p>
-					<div class="story-ingredients" aria-label="Active ingredients highlights">
-						<span class="story-chip">Milk Thistle</span>
-						<span class="story-chip">Dandelion Root</span>
-						<span class="story-chip">Turmeric</span>
-						<span class="story-chip">Artichoke</span>
-						<span class="story-chip">Beet Root</span>
-						<span class="story-chip">NAC</span>
-						<span class="story-chip">Choline</span>
-						<span class="story-chip">Black Pepper</span>
-					</div>
-				</div>
-
-				<div class="story-window" id="storyWindow">
-					<div class="window-glass">
-						<img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80" alt="Fresh botanical ingredients and capsules" loading="lazy" />
-						<div class="window-overlay"></div>
-						<div class="window-caption">
-							<strong>Open the Batch Window</strong>
-							<span>From sourcing to seal, each stage is measured for consistency and readability.</span>
-						</div>
-					</div>
-					<div class="window-shutter left" id="windowLeft"></div>
-					<div class="window-shutter right" id="windowRight"></div>
-					<div class="window-center-line" id="windowCenterLine"></div>
-				</div>
-
-				<div class="capsule-scroll-wrap" id="capsuleWrap">
-					<div class="capsule-track" id="capsuleTrack">
-						<article class="process-card story-panel">
-							<div class="process-image">
-								<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80" alt="Fresh herbs selected for formulation" loading="lazy" />
-								<div class="process-badge">Step 01</div>
-							</div>
-							<div class="process-copy">
-								<div class="process-step">Ingredient Sourcing</div>
-								<h3>Botanicals Selected For Potency</h3>
-								<p>Lots are chosen from ingredient partners with traceability and standardized markers to begin each batch on stable foundations.</p>
-								<div class="process-meta">Traceable source lots + active marker checks</div>
-							</div>
-						</article>
-
-						<article class="process-card story-panel">
-							<div class="process-image">
-								<img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80" alt="Laboratory purity screening" loading="lazy" />
-								<div class="process-badge">Step 02</div>
-							</div>
-							<div class="process-copy">
-								<div class="process-step">Identity + Purity</div>
-								<h3>Incoming Materials Are Screened</h3>
-								<p>Identity and purity checks are documented before production so each run aligns with clean manufacturing controls and batch reliability.</p>
-								<div class="process-meta">GMP-aligned controls + clean processing zones</div>
-							</div>
-						</article>
-
-						<article class="process-card story-panel">
-							<div class="process-image">
-								<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80" alt="Precise supplement blending" loading="lazy" />
-								<div class="process-badge">Step 03</div>
-							</div>
-							<div class="process-copy">
-								<div class="process-step">Formula Blending</div>
-								<h3>8 Actives, Balanced Dose By Dose</h3>
-								<p>Ingredients are blended for homogeneity so each capsule body receives the same formula profile, not random variation.</p>
-								<div class="process-meta">Homogeneous blend + measured ratio controls</div>
-							</div>
-						</article>
-
-						<article class="process-card story-panel">
-							<div class="process-image">
-								<img src="https://images.unsplash.com/photo-1580281657527-47f249e8f4df?auto=format&fit=crop&w=1200&q=80" alt="Capsule filling and final packaging" loading="lazy" />
-								<div class="process-badge">Step 04</div>
-							</div>
-							<div class="process-copy">
-								<div class="process-step">Encapsulate + Seal</div>
-								<h3>Final Weight Checks Before Release</h3>
-								<p>Encapsulation and final lot checks happen before bottles are sealed and labeled, keeping output consistent from run to run.</p>
-								<div class="process-meta">In-line weight checks + tamper-evident release</div>
-							</div>
-						</article>
-					</div>
-				</div>
 			</div>
 		</section>
 
@@ -1908,6 +2663,110 @@
 
 					<div class="reviews-grid" id="reviewsGrid"></div>
 				</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="capsule-story" id="capsuleStory">
+			<div class="capsule-wave" aria-hidden="true"></div>
+			<div class="container">
+				<div class="story-head">
+					<div class="story-eyebrow">Inside Every Bottle</div>
+					<h2 class="story-title">Every Capsule Is Packed With Essentials</h2>
+					<p class="story-sub">8 active ingredients. Perfect dosages. Scroll to open the story window, then follow how each batch moves from raw botanicals to final sealed capsules.</p>
+					<div class="story-ingredients" aria-label="Active ingredients highlights">
+						<span class="story-chip">Milk Thistle</span>
+						<span class="story-chip">Dandelion Root</span>
+						<span class="story-chip">Turmeric</span>
+						<span class="story-chip">Artichoke</span>
+						<span class="story-chip">Beet Root</span>
+						<span class="story-chip">NAC</span>
+						<span class="story-chip">Choline</span>
+						<span class="story-chip">Black Pepper</span>
+					</div>
+					<div class="story-side-shapes" aria-hidden="true">
+						<span class="story-shape leaf l1"></span>
+						<span class="story-shape capsule l2"></span>
+						<span class="story-shape seed l3"></span>
+						<span class="story-shape leaf r1"></span>
+						<span class="story-shape capsule r2"></span>
+						<span class="story-shape seed r3"></span>
+					</div>
+				</div>
+
+				<div class="story-window" id="storyWindow">
+					<div class="window-glass">
+						<img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80" alt="Fresh botanical ingredients and capsules" loading="lazy" />
+						<div class="window-overlay"></div>
+						<div class="window-caption">
+							<strong>Open the Batch Window</strong>
+							<span>From sourcing to seal, each stage is measured for consistency and readability.</span>
+						</div>
+					</div>
+					<div class="window-shutter left" id="windowLeft"></div>
+					<div class="window-shutter right" id="windowRight"></div>
+					<div class="window-center-line" id="windowCenterLine"></div>
+					<div class="story-progress" aria-hidden="true"><span id="storyProgressBar"></span></div>
+				</div>
+
+				<div class="capsule-scroll-wrap" id="capsuleWrap">
+					<div class="capsule-track" id="capsuleTrack">
+						<article class="process-card story-panel">
+							<div class="story-marker" aria-hidden="true"></div>
+							<div class="process-image">
+								<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80" alt="Fresh herbs selected for formulation" loading="lazy" />
+								<div class="process-badge">Step 01</div>
+							</div>
+							<div class="process-copy">
+								<div class="process-step">Ingredient Sourcing</div>
+								<h3>Botanicals Selected For Potency</h3>
+								<p>Lots are chosen from ingredient partners with traceability and standardized markers to begin each batch on stable foundations.</p>
+								<div class="process-meta">Traceable source lots + active marker checks</div>
+							</div>
+						</article>
+
+						<article class="process-card story-panel">
+							<div class="story-marker" aria-hidden="true"></div>
+							<div class="process-image">
+								<img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80" alt="Laboratory purity screening" loading="lazy" />
+								<div class="process-badge">Step 02</div>
+							</div>
+							<div class="process-copy">
+								<div class="process-step">Identity + Purity</div>
+								<h3>Incoming Materials Are Screened</h3>
+								<p>Identity and purity checks are documented before production so each run aligns with clean manufacturing controls and batch reliability.</p>
+								<div class="process-meta">GMP-aligned controls + clean processing zones</div>
+							</div>
+						</article>
+
+						<article class="process-card story-panel">
+							<div class="story-marker" aria-hidden="true"></div>
+							<div class="process-image">
+								<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80" alt="Precise supplement blending" loading="lazy" />
+								<div class="process-badge">Step 03</div>
+							</div>
+							<div class="process-copy">
+								<div class="process-step">Formula Blending</div>
+								<h3>8 Actives, Balanced Dose By Dose</h3>
+								<p>Ingredients are blended for homogeneity so each capsule body receives the same formula profile, not random variation.</p>
+								<div class="process-meta">Homogeneous blend + measured ratio controls</div>
+							</div>
+						</article>
+
+						<article class="process-card story-panel">
+							<div class="story-marker" aria-hidden="true"></div>
+							<div class="process-image">
+								<img src="https://images.unsplash.com/photo-1580281657527-47f249e8f4df?auto=format&fit=crop&w=1200&q=80" alt="Capsule filling and final packaging" loading="lazy" />
+								<div class="process-badge">Step 04</div>
+							</div>
+							<div class="process-copy">
+								<div class="process-step">Encapsulate + Seal</div>
+								<h3>Final Weight Checks Before Release</h3>
+								<p>Encapsulation and final lot checks happen before bottles are sealed and labeled, keeping output consistent from run to run.</p>
+								<div class="process-meta">In-line weight checks + tamper-evident release</div>
+							</div>
+						</article>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -1958,6 +2817,7 @@
 			const windowLeft = document.getElementById("windowLeft");
 			const windowRight = document.getElementById("windowRight");
 			const windowCenterLine = document.getElementById("windowCenterLine");
+			const storyProgressBar = document.getElementById("storyProgressBar");
 
 			if (sliderTrack && sliderDots.length) {
 				let currentSlide = 0;
@@ -2076,14 +2936,20 @@
 			if (capsuleStory && capsuleWrap && capsuleTrack && storyWindow && windowLeft && windowRight && window.gsap && window.ScrollTrigger) {
 				const storyPanels = Array.from(capsuleTrack.querySelectorAll(".story-panel"));
 				const processImages = Array.from(capsuleTrack.querySelectorAll(".process-image img"));
+				const storyCaptionTitle = storyWindow.querySelector(".window-caption strong");
+				const storyCaptionBody = storyWindow.querySelector(".window-caption span");
 
 				function setupCapsuleStory() {
 					ScrollTrigger.getById("windowOpenTrigger")?.kill();
+					ScrollTrigger.getById("storyProgressTrigger")?.kill();
 					ScrollTrigger.getAll().forEach(function (trigger) {
 						if (trigger.vars && trigger.vars.id && String(trigger.vars.id).indexOf("storyCard") === 0) {
 							trigger.kill();
 						}
 						if (trigger.vars && trigger.vars.id && String(trigger.vars.id).indexOf("storyImage") === 0) {
+							trigger.kill();
+						}
+						if (trigger.vars && trigger.vars.id && String(trigger.vars.id).indexOf("storyFocus") === 0) {
 							trigger.kill();
 						}
 					});
@@ -2093,6 +2959,38 @@
 					gsap.set(windowCenterLine, { opacity: 1 });
 					gsap.set(storyPanels, { y: 46, opacity: 0 });
 					gsap.set(processImages, { scale: 1.18, y: 24 });
+					if (storyProgressBar) {
+						gsap.set(storyProgressBar, { scaleX: 0, transformOrigin: "left center" });
+					}
+
+					function setActivePanel(index) {
+						storyPanels.forEach(function (panel, panelIndex) {
+							const isActive = panelIndex === index;
+							panel.classList.toggle("is-active", isActive);
+							panel.style.setProperty("--panel-progress", isActive ? "1" : "0.2");
+						});
+
+						if (!storyCaptionTitle || !storyCaptionBody || !storyPanels[index]) return;
+						const nextTitle = storyPanels[index].querySelector(".process-copy h3")?.textContent || "Open the Batch Window";
+						const nextBody = storyPanels[index].querySelector(".process-copy p")?.textContent || "From sourcing to seal, each stage is measured for consistency and readability.";
+
+						gsap.to([storyCaptionTitle, storyCaptionBody], {
+							opacity: 0,
+							y: 8,
+							duration: 0.18,
+							ease: "power1.out",
+							onComplete: function () {
+								storyCaptionTitle.textContent = nextTitle;
+								storyCaptionBody.textContent = nextBody;
+								gsap.to([storyCaptionTitle, storyCaptionBody], {
+									opacity: 1,
+									y: 0,
+									duration: 0.28,
+									ease: "power2.out"
+								});
+							}
+						});
+					}
 
 					ScrollTrigger.create({
 						id: "windowOpenTrigger",
@@ -2124,6 +3022,19 @@
 								start: "top 68%"
 							}
 						});
+
+						ScrollTrigger.create({
+							id: "storyFocus" + index,
+							trigger: panel,
+							start: "top 58%",
+							end: "bottom 50%",
+							onEnter: function () {
+								setActivePanel(index);
+							},
+							onEnterBack: function () {
+								setActivePanel(index);
+							}
+						});
 					});
 
 					processImages.forEach(function (image, index) {
@@ -2140,6 +3051,22 @@
 							}
 						});
 					});
+
+					if (storyProgressBar) {
+						gsap.to(storyProgressBar, {
+							scaleX: 1,
+							ease: "none",
+							scrollTrigger: {
+								id: "storyProgressTrigger",
+								trigger: capsuleWrap,
+								start: "top 76%",
+								end: "bottom 40%",
+								scrub: true
+							}
+						});
+					}
+
+					setActivePanel(0);
 				}
 
 				window.addEventListener("load", function () {
@@ -2195,11 +3122,15 @@ const reviewsGrid = document.getElementById("reviewsGrid");
 
 					reviewsGrid.innerHTML = reviews
 						.map(function (review, index) {
+							const packLabel = (index % 3 === 0) ? "3 Bottle Plan" : (index % 3 === 1) ? "2 Bottle Plan" : "1 Bottle Plan";
+							const helpfulCount = 12 + (index % 37);
 							return (
 								'<article class="review-card scroll-reveal" data-index="' + index + '">' +
-								'<div class="review-top"><div class="review-user"><img class="review-avatar" src="' + review.avatar + '" alt="Customer photo" loading="lazy" /><div class="review-meta"><div class="review-name">' + review.name + ' | Verified Buyer</div><div class="review-time">' + review.daysAgo + 'd ago</div></div></div></div>' +
-								'<div class="review-stars">★★★★★</div>' +
+								'<div class="review-badge">Verified</div>' +
+								'<div class="review-top"><div class="review-user"><img class="review-avatar" src="' + review.avatar + '" alt="Customer photo" loading="lazy" /><div class="review-meta"><div class="review-name">' + review.name + ' | Verified Buyer</div><div class="review-time">' + review.daysAgo + 'd ago</div></div></div><div class="review-pack">' + packLabel + '</div></div>' +
+								'<div class="review-kpis"><div class="review-stars">★★★★★</div><div class="review-score">4.9/5 routine match</div></div>' +
 								'<p class="review-text">"' + review.quote + '"</p>' +
+								'<div class="review-footer"><span class="review-helpful">👍 Helpful ' + helpfulCount + '</span><span>Purchased via Solvano Store</span></div>' +
 								'</article>'
 							);
 						})
